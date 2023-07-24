@@ -32,5 +32,9 @@ public class AniController : MonoBehaviour
         {
             anim.SetBool("Straight", true);
         }
+        if (Input.GetKeyDown(KeyCode.A) && !stateInfo.IsName("Ducking"))
+        {
+            anim.SetBool("Ducking", true);
+        }
     }
 }
