@@ -15,17 +15,22 @@ public class AniController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        if (Input.GetKeyDown(KeyCode.Q) && !stateInfo.IsName("Hook"))
         {
-            anim.SetTrigger("Hook");
+            anim.SetBool("Hook", true);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && !stateInfo.IsName("Uppercut"))
         {
-            anim.SetTrigger("Punching(1)");
+            anim.SetBool("Uppercut", true);
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R) && !stateInfo.IsName("Jab"))
         {
-            anim.SetTrigger("Punching");
+            anim.SetBool("Jab", true);
+        }
+        if (Input.GetKeyDown(KeyCode.E) && !stateInfo.IsName("Straight"))
+        {
+            anim.SetBool("Straight", true);
         }
     }
 }
