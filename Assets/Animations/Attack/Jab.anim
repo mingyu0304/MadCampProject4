@@ -27021,10 +27021,10 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.2
-    functionName: setJabFalse
+  - time: 0.16666667
+    functionName: setParametersFalse
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 3822c4a1918adde4aa5fbffb50c8c257, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 9c2ec9b521f42b245be86efd5ef11cdc, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

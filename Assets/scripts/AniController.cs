@@ -14,25 +14,116 @@ public class AniController : MonoBehaviour
     void Update()
     {
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-        if (Input.GetKeyDown(KeyCode.Q) && !stateInfo.IsName("Hook"))
+        /*
+        if (stateInfo.IsName("Boxing") || stateInfo.IsName("BodyGaurd"))
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                anim.SetBool("Hook", true);
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                anim.SetBool("Uppercut", true);
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                anim.SetBool("Jab", true);
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                anim.SetBool("Straight", true);
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                anim.SetBool("Ducking", true);
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                anim.SetBool("Sway", true);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                anim.SetBool("Weabing", true);
+            }
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                anim.SetBool("BodyBlow", true);
+            }
+        }
+        if (stateInfo.IsName("Sway") || stateInfo.IsName("Weabing") || stateInfo.IsName("Ducking"))
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                anim.SetBool("Hook", true);
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                anim.SetBool("Uppercut", true);
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                anim.SetBool("Jab", true);
+            }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                anim.SetBool("Straight", true);
+            }
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                anim.SetBool("BodyBlow", true);
+            }
+        }
+        if (stateInfo.IsName("Hook") || stateInfo.IsName("Uppercut") || stateInfo.IsName("Jab") || stateInfo.IsName("BodyBlow") || stateInfo.IsName("Straight"))
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                anim.SetBool("Ducking", true);
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                anim.SetBool("Sway", true);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                anim.SetBool("Weabing", true);
+            }
+        }
+        */
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             anim.SetBool("Hook", true);
         }
-        if (Input.GetKeyDown(KeyCode.W) && !stateInfo.IsName("Uppercut"))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             anim.SetBool("Uppercut", true);
         }
-        if (Input.GetKeyDown(KeyCode.R) && !stateInfo.IsName("Jab"))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             anim.SetBool("Jab", true);
         }
-        if (Input.GetKeyDown(KeyCode.E) && !stateInfo.IsName("Straight"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             anim.SetBool("Straight", true);
         }
-        if (Input.GetKeyDown(KeyCode.A) && !stateInfo.IsName("Ducking"))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             anim.SetBool("Ducking", true);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            anim.SetBool("Sway", true);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetBool("Weabing", true);
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            anim.SetBool("BodyBlow", true);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            anim.SetBool("HeadGaurd", !anim.GetBool("HeadGaurd"));
         }
     }
 
