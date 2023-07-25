@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SetJabFalse : MonoBehaviour
@@ -9,4 +7,5 @@ public class SetJabFalse : MonoBehaviour
     {
         anim.SetBool("Jab", false);
     }
+
 }

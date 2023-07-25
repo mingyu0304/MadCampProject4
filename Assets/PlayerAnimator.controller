@@ -260,31 +260,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Uppercut
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Straight
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Jab
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Ducking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -368,16 +368,16 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -72172816835140788}
-    m_Position: {x: 250, y: 250, z: 0}
+    m_Position: {x: 450, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3949383204273649666}
-    m_Position: {x: 100, y: 220, z: 0}
+    m_Position: {x: -190, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3841400763913673294}
-    m_Position: {x: 250, y: 220, z: 0}
+    m_Position: {x: 20, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7464998020467948434}
-    m_Position: {x: 110, y: 250, z: 0}
+    m_Position: {x: 240, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7308526456773491819}
     m_Position: {x: 600, y: 200, z: 0}
