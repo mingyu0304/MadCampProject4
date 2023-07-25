@@ -3,12 +3,32 @@ using UnityEngine;
 public class Opponent : MonoBehaviour
 {
     public int health = 100;
+    public float mp = 100;
+    public float maxMp = 100;
+    public float mpRecoveryRate = 5;
     public HPBar healthBar;
+    public MPBar mpBar;
+    private void Update()
+    {
+        // MP 회복
+        if (mp < maxMp)
+        {
+            mp += mpRecoveryRate * Time.deltaTime; // deltaTime을 사용하여 프레임-초 단위로 변환
+            if (mp > maxMp)
+            {
+                mp = maxMp;
+            }
+            mpBar.SetMP(mp);
+        }
+    }
     public void TakeDamage(int damage)
     {
         health -= damage;
+        mp -= damage;
         Debug.Log("Opponent health: " + health);
+        Debug.Log("Opponent MP: " + mp);
         healthBar.SetHealth(health);
+        mpBar.SetMP(mp);
         if (health <= 0)
         {
             Die();
