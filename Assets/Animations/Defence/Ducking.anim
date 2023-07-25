@@ -25473,10 +25473,10 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.28333333
-    functionName: setDuckingFalse
+  - time: 0.5833333
+    functionName: setParametersFalse
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 67b1fcd1fd0c98247bb6c85e7d4daf2c, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 9c2ec9b521f42b245be86efd5ef11cdc, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
