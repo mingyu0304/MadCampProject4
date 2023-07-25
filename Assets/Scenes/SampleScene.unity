@@ -408,7 +408,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410503330
 GameObject:
@@ -504,7 +504,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  mp: 100
+  maxMp: 100
+  mpRecoveryRate: 5
   healthBar: {fileID: 1889550471}
+  mpBar: {fileID: 2130279139}
 --- !u!136 &447140715
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -842,9 +846,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1059,7 +1063,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 54fac57857cb31342a212954626917d7, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 54fac57857cb31342a212954626917d7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1718,6 +1722,7 @@ GameObject:
   - component: {fileID: 2130279137}
   - component: {fileID: 2130279136}
   - component: {fileID: 2130279135}
+  - component: {fileID: 2130279139}
   m_Layer: 5
   m_Name: MP
   m_TagString: Untagged
@@ -1809,3 +1814,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2130279139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130279134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ed001323df34e319d5f9a546235c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 762146554}
