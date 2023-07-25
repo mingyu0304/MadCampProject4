@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AniController : MonoBehaviour
@@ -37,4 +35,15 @@ public class AniController : MonoBehaviour
             anim.SetBool("Ducking", true);
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Punch");
+        Opponent opponent = other.GetComponent<Opponent>();
+        if (opponent != null)
+        {
+            opponent.TakeDamage(10);
+        }
+    }
+
 }

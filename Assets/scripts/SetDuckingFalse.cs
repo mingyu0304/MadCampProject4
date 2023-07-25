@@ -9,4 +9,5 @@ public class SetDuckingFalse : MonoBehaviour
     {
         anim.SetBool("Ducking", false);
     }
+    
 }
