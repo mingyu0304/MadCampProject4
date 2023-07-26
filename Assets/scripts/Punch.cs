@@ -7,9 +7,16 @@ public class Punch : MonoBehaviour
     public int punchDamage = 10;
     public float punchDuration = 0.5f;
 
+    public ParticleSystem punchEffect;
+
+    bool isHit = false;
+    void Start()
+    {
+        punchEffect.Stop();
+    }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R))
             StartCoroutine(DoPunch());
 
     }
@@ -23,14 +30,24 @@ public class Punch : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Opponent")
+        if (other.gameObject.tag == "Opponent" && !isHit)
         {
             Opponent opponent = other.GetComponent<Opponent>();
             if (opponent != null)
             {
                 opponent.TakeDamage(punchDamage);
+                punchEffect.Play();
+                isHit = true;
             }
         }
     }
 
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Opponent"))
+        {
+            isHit = false;
+
+        }
+    }
 }
