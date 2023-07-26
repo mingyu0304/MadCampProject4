@@ -456,7 +456,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 809e6f77ee7640644a9f932bc0c2bad4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 5022eeefe721f7f43a186f38b3b152b6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1259,6 +1259,9 @@ AnimatorController:
     - serializedVersion: 2
       m_State: {fileID: 0}
       m_Motion: {fileID: 7400000, guid: c0ece505b5c38de489c42eaecba5df2a, type: 2}
+    - serializedVersion: 2
+      m_State: {fileID: -4441905661442645808}
+      m_Motion: {fileID: 7400000, guid: 75e144a0380422349a6c677d1b3b6607, type: 2}
     m_Behaviours: []
     m_BlendingMode: 0
     m_SyncedLayerIndex: 0
@@ -1728,7 +1731,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Weabing
-  m_Speed: 0
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 114970606531827093}
@@ -1747,7 +1750,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9ab4d404f8a82844cbb1b738fbd1ea63, type: 2}
+  m_Motion: {fileID: 7400000, guid: 70d43a4d72b5d524c82f3359474147ed, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
