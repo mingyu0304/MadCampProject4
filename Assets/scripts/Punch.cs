@@ -7,13 +7,8 @@ public class Punch : MonoBehaviour
     public int punchDamage = 10;
     public float punchDuration = 0.5f;
 
-    public ParticleSystem punchEffect;
-
     bool isHit = false;
-    void Start()
-    {
-        punchEffect.Stop();
-    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R))
@@ -36,7 +31,6 @@ public class Punch : MonoBehaviour
             if (opponent != null)
             {
                 opponent.TakeDamage(punchDamage);
-                punchEffect.Play();
                 isHit = true;
             }
         }

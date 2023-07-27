@@ -1,6 +1,7 @@
 using UnityEngine;
+using Mirror;
 
-public class AniController : MonoBehaviour
+public class AniController : NetworkBehaviour
 {
 
     public Animator anim;
@@ -14,7 +15,8 @@ public class AniController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        if(isLocalPlayer)
+        {AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -51,7 +53,7 @@ public class AniController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             anim.SetBool("HeadGaurd", !anim.GetBool("HeadGaurd"));
-        }
+        }}
     }
 
     private void OnTriggerEnter(Collider other)

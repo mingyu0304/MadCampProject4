@@ -10,7 +10,7 @@ public class Opponent : MonoBehaviour
     public HPBar healthBar;
     public MPBar mpBar;
     private bool isInvincible = false;
-    private float invincibleTime = 0.3f;
+    private float invincibleTime = 0.5f;
 
     public Material mat;
 
