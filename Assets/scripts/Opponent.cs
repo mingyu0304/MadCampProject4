@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Opponent : MonoBehaviour
@@ -8,6 +9,11 @@ public class Opponent : MonoBehaviour
     public float mpRecoveryRate = 5;
     public HPBar healthBar;
     public MPBar mpBar;
+    private bool isInvincible = false;
+    private float invincibleTime = 0.5f;
+
+    public Material mat;
+
     private void Update()
     {
         // MP 회복
@@ -23,25 +29,35 @@ public class Opponent : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
-        mp -= damage;
-        Debug.Log("Opponent health: " + health);
-        Debug.Log("Opponent MP: " + mp);
-        healthBar.SetHealth(health);
-        mpBar.SetMP(mp);
-        if (health <= 0)
+        if (!isInvincible)
         {
-            Die();
+            health -= damage;
+            mp -= damage;
+            Debug.Log("Opponent health: " + health);
+            Debug.Log("Opponent MP: " + mp);
+            healthBar.SetHealth(health);
+            mpBar.SetMP(mp);
+            StartCoroutine(ChangeColor());
+            if (health <= 0)
+            {
+                Debug.Log("Opponent is defeated!");
+            }
+            StartCoroutine(BecomeInvincible(invincibleTime));
         }
     }
 
-    void Die()
+    IEnumerator BecomeInvincible(float time)
     {
-        Debug.Log("Opponent is defeated!");
-
-        // 게임 오버시 기타 처리
-        // Destroy(gameObject); // 예를 들어, 게임 오브젝트를 파괴하는 것이 가능합니다.
-        // 하지만 이 경우, 단순히 오브젝트를 파괴하는 대신 다른 행동을 원할 수도 있습니다.
-        // 예를 들어, 게임이 끝났음을 알리는 UI를 보여주거나, 적의 '사망' 애니메이션을 재생시킬 수 있습니다.
+        isInvincible = true;
+        yield return new WaitForSeconds(time);
+        isInvincible = false;
     }
+    IEnumerator ChangeColor()
+    {
+        mat.color = Color.red;
+        yield return new WaitForSeconds(0.3f);
+        mat.color = new Color(19 / 255f, 68 / 255f, 87 / 255f);
+    }
+
+
 }
