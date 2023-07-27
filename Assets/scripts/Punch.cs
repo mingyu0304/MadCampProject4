@@ -1,7 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using Mirror;
 
-public class Punch : MonoBehaviour
+public class Punch : NetworkBehaviour
 {
     public Collider punchCollider;
     public int punchDamage = 10;
@@ -11,6 +12,7 @@ public class Punch : MonoBehaviour
 
     void Update()
     {
+        if (!isLocalPlayer) return;
         if (Input.GetKeyDown(KeyCode.T) || Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.R))
             StartCoroutine(DoPunch());
 
@@ -25,12 +27,26 @@ public class Punch : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Opponent" && !isHit)
+        Debug.Log("punch");
+        NetworkIdentity networkIdentity = other.GetComponentInParent<NetworkIdentity>();
+        if (networkIdentity == null || networkIdentity.connectionToClient == null)
         {
-            Opponent opponent = other.GetComponent<Opponent>();
-            if (opponent != null)
+            // Collider에 NetworkIdentity가 없거나, 네트워크에 연결되지 않았다면 충돌 처리를 하지 않습니다.
+            return;
+        }
+        if (NetworkServer.active && networkIdentity.connectionToClient.connectionId == NetworkServer.localConnection.connectionId)
+        {
+            // 충돌한 객체가 로컬 플레이어면 데미지 처리를 하지 않습니다.
+            return;
+        }
+        if (other.gameObject.tag == "Player" && !isHit)
+        {
+            AniController player = other.GetComponentInParent<AniController>();
+            Debug.Log("opponent");
+            if (player != null)
             {
-                opponent.TakeDamage(punchDamage);
+                Debug.Log("not null");
+                CmdDealDamage(player.gameObject);
                 isHit = true;
             }
         }
@@ -38,10 +54,15 @@ public class Punch : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Opponent"))
+        if (other.CompareTag("Player"))
         {
             isHit = false;
-
         }
+    }
+
+    [Command]
+    void CmdDealDamage(GameObject player)
+    {
+        player.GetComponent<AniController>().TakeDamage(punchDamage);
     }
 }
